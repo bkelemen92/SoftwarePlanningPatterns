@@ -26,14 +26,22 @@ namespace SoftwareDesignPatterns
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Factory = new BallFactory();
+
             createTimer.Tick += CreateTimer_Tick;
             conveyorTimer.Tick += ConveyorTimer_Tick;
+
             Btn_Ball.Click += Btn_Ball_Click;
             Btn_Car.Click += Btn_Car_Click;
-            Btn_BallColor.Click += Btn_BallColor_Click;
+            Btn_Present.Click += Btn_Present_Click;
+            
+            Btn_BallColor.Click += ChangeColor;
+            Btn_BoxColor.Click += ChangeColor;
+            Btn_RibbonColor.Click += ChangeColor;
         }
 
-        private void Btn_BallColor_Click(object sender, EventArgs e)
+        
+
+        private void ChangeColor(object sender, EventArgs e)
         {
             var button = (Button)sender;
             var colorPicker = new ColorDialog { Color = button.BackColor };
@@ -51,8 +59,12 @@ namespace SoftwareDesignPatterns
         {
             Factory = new CarFactory();
         }
+        private void Btn_Present_Click(object sender, EventArgs e)
+        {
+            Factory = new PresentFactory { BoxColor = Btn_BoxColor.BackColor, RibbonColor = Btn_RibbonColor.BackColor };
+        }
 
-        
+
 
         private void CreateTimer_Tick(object sender, EventArgs e)
         {
