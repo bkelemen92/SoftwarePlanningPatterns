@@ -33,6 +33,7 @@ namespace SoftwareDesignPatterns
             this.Btn_Ball = new System.Windows.Forms.Button();
             this.Btn_Car = new System.Windows.Forms.Button();
             this.Lbl_Next = new System.Windows.Forms.Label();
+            this.Btn_BallColor = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // mainPanel
@@ -69,11 +70,21 @@ namespace SoftwareDesignPatterns
             this.Lbl_Next.TabIndex = 3;
             this.Lbl_Next.Text = "Coming next:";
             // 
+            // Btn_BallColor
+            // 
+            this.Btn_BallColor.BackColor = System.Drawing.Color.Blue;
+            this.Btn_BallColor.Location = new System.Drawing.Point(13, 69);
+            this.Btn_BallColor.Name = "Btn_BallColor";
+            this.Btn_BallColor.Size = new System.Drawing.Size(79, 23);
+            this.Btn_BallColor.TabIndex = 4;
+            this.Btn_BallColor.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 450);
+            this.Controls.Add(this.Btn_BallColor);
             this.Controls.Add(this.Lbl_Next);
             this.Controls.Add(this.Btn_Car);
             this.Controls.Add(this.Btn_Ball);
@@ -91,6 +102,7 @@ namespace SoftwareDesignPatterns
         private System.Windows.Forms.Button Btn_Ball;
         private System.Windows.Forms.Button Btn_Car;
         private System.Windows.Forms.Label Lbl_Next;
+        private System.Windows.Forms.Button Btn_BallColor;
     }
 }
 

@@ -30,6 +30,16 @@ namespace SoftwareDesignPatterns
             conveyorTimer.Tick += ConveyorTimer_Tick;
             Btn_Ball.Click += Btn_Ball_Click;
             Btn_Car.Click += Btn_Car_Click;
+            Btn_BallColor.Click += Btn_BallColor_Click;
+        }
+
+        private void Btn_BallColor_Click(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            var colorPicker = new ColorDialog { Color = button.BackColor };
+
+            if (colorPicker.ShowDialog() != DialogResult.OK) return;
+            button.BackColor = colorPicker.Color;
         }
 
         private void Btn_Ball_Click(object sender, EventArgs e)
