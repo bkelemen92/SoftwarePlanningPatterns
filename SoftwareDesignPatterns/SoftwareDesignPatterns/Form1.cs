@@ -96,7 +96,9 @@ namespace SoftwareDesignPatterns
             _nextToy = Factory.CreateNew();
             _nextToy.Top = Lbl_Next.Top + Lbl_Next.Height + 20;
             _nextToy.Left = Lbl_Next.Left;
+            _nextToy.Enabled = false;
             Controls.Add(_nextToy);
+            
         }
 
         
