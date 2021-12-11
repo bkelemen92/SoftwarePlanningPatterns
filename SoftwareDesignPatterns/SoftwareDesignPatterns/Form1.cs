@@ -14,6 +14,7 @@ namespace SoftwareDesignPatterns
 {
     public partial class Form1 : Form
     {
+        private Toy _nextToy;
         private List<Toy> _toys = new List<Toy>();
         Timer createTimer = new Timer { Interval = 3000, Enabled = true };
         Timer conveyorTimer = new Timer { Interval = 10, Enabled = true };
@@ -27,7 +28,21 @@ namespace SoftwareDesignPatterns
             Factory = new BallFactory();
             createTimer.Tick += CreateTimer_Tick;
             conveyorTimer.Tick += ConveyorTimer_Tick;
+            Btn_Ball.Click += Btn_Ball_Click;
+            Btn_Car.Click += Btn_Car_Click;
         }
+
+        private void Btn_Ball_Click(object sender, EventArgs e)
+        {
+            Factory = new BallFactory();
+        }
+
+        private void Btn_Car_Click(object sender, EventArgs e)
+        {
+            Factory = new CarFactory();
+        }
+
+        
 
         private void CreateTimer_Tick(object sender, EventArgs e)
         {
@@ -53,13 +68,22 @@ namespace SoftwareDesignPatterns
             }
         }
 
+        private void DisplayNext()
+        {
+            if (_nextToy != null) Controls.Remove(_nextToy);
+            _nextToy = Factory.CreateNew();
+            _nextToy.Top = Lbl_Next.Top + Lbl_Next.Height + 20;
+            _nextToy.Left = Lbl_Next.Left;
+            Controls.Add(_nextToy);
+        }
+
         
 
         private IToyFactory _factory;
         public IToyFactory Factory
         {
             get { return _factory; }
-            set { _factory = value; }
+            set { _factory = value; DisplayNext(); }
         }
     }
 }
