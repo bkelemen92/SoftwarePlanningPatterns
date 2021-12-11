@@ -44,7 +44,7 @@ namespace SoftwareDesignPatterns
 
         private void Btn_Ball_Click(object sender, EventArgs e)
         {
-            Factory = new BallFactory();
+            Factory = new BallFactory { BallColor = Btn_BallColor.BackColor };
         }
 
         private void Btn_Car_Click(object sender, EventArgs e)
